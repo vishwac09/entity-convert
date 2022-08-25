@@ -1,0 +1,33 @@
+{
+    "name": "vishwac09/simple_entities",
+    "description": "Parse Drupal entities",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vishwa Chikate",
+            "email": "vishwa.chikate@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SimpleEntities\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SimpleEntitiesTest\\": "test/"
+        }
+    },
+    "require": {
+        "php": "^7.2 || ^8.0"
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "9.5.x-dev",
+        "phpspec/prophecy": "1.x-dev"
+    },
+    "scripts": {
+        "tests": "./vendor/bin/phpunit --colors test/"
+    }
+}

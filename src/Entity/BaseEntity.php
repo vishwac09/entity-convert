@@ -10,6 +10,13 @@ use SimpleEntities\FieldTypes\Fields;
 abstract class BaseEntity implements EntityInterface {
 
   /**
+   * Default constructor.
+   */
+  function __construct($render_child = true) {
+    $this->render_child = $render_child;
+  }
+
+  /**
    * @var array $resolvedEntity
    *   Reference to the resolved object.
    */
@@ -17,8 +24,15 @@ abstract class BaseEntity implements EntityInterface {
 
   /**
    * @var \SimpleEntities\FieldTypes\FieldTypes $fieldTypes
+   *   Instance of the FieldTypes.
    */
   protected $fieldTypes;
+
+  /**
+   * @var Boolean $render_child
+   *   Flag representing to render child entities.
+   */
+  protected $render_child;
 
   /**
    * Magic method to return the property value.
@@ -74,8 +88,15 @@ abstract class BaseEntity implements EntityInterface {
   public function resolveDefaultFields($fieldItemList) {
     $fieldTypeInstance = $fieldItemList->first() ?? null;
     if (isset($fieldTypeInstance)) {
-      $type = $fieldTypeInstance->getFieldDefinition()->getType();
-      return $this->fieldTypes->{'get_' . strtolower($type)}($fieldTypeInstance->getValue());
+      $field_def = $fieldTypeInstance->getFieldDefinition();
+      $setting_type = $field_def->getFieldStorageDefinition()->getSettings();
+      $type = $field_def->getType();
+      if ($type == 'entity_reference') {
+        return $this->fieldTypes->{'get_' . strtolower($type)}($fieldTypeInstance->getValue(), $setting_type);
+      }
+      else {
+        return $this->fieldTypes->{'get_' . strtolower($type)}($fieldTypeInstance->getValue());
+      }
     }
     return null;
   }
@@ -89,11 +110,25 @@ abstract class BaseEntity implements EntityInterface {
     while ($iterator->valid()) {
       $fieldTypeInstance = $iterator->current() ??  null;
       if (isset($fieldTypeInstance)) {
-        $type = $fieldTypeInstance->getFieldDefinition()->getType();
-        $value[$iterator->key()] = $this->fieldTypes->{'get_' . strtolower($type)}($fieldTypeInstance->getValue());
+        $field_def = $fieldTypeInstance->getFieldDefinition();
+        $setting_type = $field_def->getFieldStorageDefinition()->getSettings();
+        $type = $field_def->getType();
+        if ($type == 'entity_reference') {
+          $value[$iterator->key()] = $this->fieldTypes->{'get_' . strtolower($type)}($fieldTypeInstance->getValue(), $setting_type);
+        }
+        else {
+          $value[$iterator->key()] = $this->fieldTypes->{'get_' . strtolower($type)}($fieldTypeInstance->getValue());
+        }
       }
       $iterator->next();
     }
     return $value;
+  }
+
+  /**
+   * @{inheritdoc}
+   */
+  public function toArray() {
+    return $this->resolvedEntity;
   }
 }

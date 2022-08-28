@@ -10,19 +10,19 @@ trait General {
   /**
    * Resolver for field having type as Boolean.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return bool
    */
   public function get_boolean($value) {
-    return $value['value'];
+    return $this->preserveType ? (bool) $value['value'] : $value['value'];
   }
 
   /**
    * Resolver for field having type as Comment.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return array
@@ -34,19 +34,19 @@ trait General {
   /**
    * Resolver for field having type as Datetime.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return string
    */
   public function get_datetime($value) {
-    return $value['value'];
+    return new \DateTime($value['value']);
   }
 
   /**
    * Resolver for field having type as Email.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return string
@@ -58,7 +58,7 @@ trait General {
   /**
    * Resolver for field having type as Link.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return string
@@ -70,7 +70,7 @@ trait General {
   /**
    * Resolver for field having type as Timestamp.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return int

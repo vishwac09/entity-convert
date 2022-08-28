@@ -49,4 +49,11 @@ interface EntityInterface {
    *   
    */
   public function resolveFields($fieldItemList);
+
+  /**
+   * Return the resolved list of data types.
+   * 
+   * @return array
+   */
+  public function toArray();
 }

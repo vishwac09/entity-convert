@@ -44,10 +44,10 @@ class Fields {
   /**
    * Resolver for field having type as changed.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
-   * @return mixed
+   * @return string
    */
   public function get_changed($value) {
     return $value['value'];
@@ -56,10 +56,10 @@ class Fields {
   /**
    * Resolver for field having type as created.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
-   * @return mixed
+   * @return string
    */
   public function get_created($value) {
     return $value['value'];
@@ -68,10 +68,10 @@ class Fields {
   /**
    * Resolver for field having type as language.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
-   * @return mixed
+   * @return string
    */
   public function get_language($value) {
     return $value['value'];
@@ -80,10 +80,10 @@ class Fields {
   /**
    * Resolver for field having type as password.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
-   * @return mixed
+   * @return string
    */
   public function get_password($value) {
     return $value['value'];
@@ -92,10 +92,10 @@ class Fields {
   /**
    * Resolver for field having type as path.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
-   * @return mixed
+   * @return array
    */
   public function get_path($value) {
     return $value;
@@ -104,10 +104,10 @@ class Fields {
   /**
    * Resolver for field having type as string.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
-   * @return mixed
+   * @return string
    */
   public function get_string($value) {
     return $value['value'];
@@ -116,10 +116,10 @@ class Fields {
   /**
    * Resolver for field having type as uuid.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    * 
-   * @return mixed
+   * @return string
    */
   public function get_uuid($value) {
     return $value['value'];

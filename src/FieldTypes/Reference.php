@@ -2,6 +2,12 @@
 
 namespace SimpleEntities\FieldTypes;
 
+use SimpleEntities\Entity\File;
+use SimpleEntities\Entity\Image;
+use SimpleEntities\SimpleEntityAccess;
+
+use Drupal\file\Entity\File as DrupalFile;
+
 /**
  * Group of reference category fields.
  */
@@ -10,36 +16,42 @@ trait Reference {
   /**
    * Resolver for field having type as EntityReference.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
-   *
-   * @return 
+   * @param array $setting
+   *   The type of the value.
+   * 
+   * @return BaseEntity
    */
-  public function get_entity_reference($value) {
+  public function get_entity_reference($value, $setting) {
     return $value['target_id'];
   }
   
   /**
    * Resolver for field having type as File.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return mixed
    */
   public function get_file($value) {
-    return $value;
+    $file = DrupalFile::load($value['target_id']);
+    $parsedEntity = (new File())->parse($file);
+    return $parsedEntity->toArray();
   }
 
   /**
    * Resolver for field having type as Image.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return mixed
    */
   public function get_image($value) {
-    return $value;
+    $file = DrupalFile::load($value['target_id']);
+    $parsedEntity = (new File())->parse($file);
+    return $parsedEntity->toArray();
   }
 }

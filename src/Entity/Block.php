@@ -3,9 +3,9 @@
 namespace SimpleEntities\Entity;
 
 /**
- * Handler for the User Entity type.
+ * Handler for the File Entity type.
  */
-class User extends BaseEntity {
+class Block extends BaseEntity {
 
   /**
    * Default constructor
@@ -19,23 +19,17 @@ class User extends BaseEntity {
    */
   public function isSingleValued($name) {
     return in_array($name, [
-        'uid',
+        'fid',
         'uuid',
-        'preferred_langcode',
         'langcode',
-        'preferred_admin_langcode',
-        'name',
-        'pass',
-        'mail',
-        'timezone',
+        'uid',
+        'filename',
+        'uri',
+        'filemime',
+        'filesize',
         'status',
         'created',
-        'changed',
-        'access',
-        'login',
-        'init',
-        'roles',
-        'default_langcode'
+        'changed'
       ]
     );
   }

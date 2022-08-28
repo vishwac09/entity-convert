@@ -10,7 +10,7 @@ trait Number {
   /**
    * Resolver for field having type as Decimal.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return float
@@ -22,7 +22,7 @@ trait Number {
   /**
    * Resolver for field having type as Float.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return float
@@ -34,7 +34,7 @@ trait Number {
   /**
    * Resolver for field having type as Integer.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return int
@@ -46,7 +46,7 @@ trait Number {
   /**
    * Resolver for field having type as ListFloat.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return float
@@ -58,7 +58,7 @@ trait Number {
   /**
    * Resolver for field having type as ListInteger.
    * 
-   * @param mixed $value
+   * @param array $value
    *   The value of the field.
    *
    * @return int

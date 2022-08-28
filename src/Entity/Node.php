@@ -10,7 +10,9 @@ class Node extends BaseEntity {
   /**
    * Default constructor
    */
-  function __construct() {}
+  function __construct() {
+    parent::__construct();
+  }
 
   /**
    * @{inheritdoc}

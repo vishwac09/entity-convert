@@ -2,6 +2,7 @@
 
 namespace SimpleEntities;
 
+use SimpleEntities\Entity\Block;
 use SimpleEntities\Entity\File;
 use SimpleEntities\Entity\Node;
 use SimpleEntities\Entity\Taxonomy;
@@ -31,9 +32,10 @@ final class SimpleEntityAccess {
     }
     try {
       $obj = $this->parseInstance($instance->getEntityTypeId());
-      return $obj->parse($instance);
+      $parsedInstance = $obj->parse($instance);
+      return $parsedInstance->toArray();
     } catch (\Exception $e) {
-      throw new \SimpleEntitiesException(
+      throw new SimpleEntitiesException(
         'Unable to parse the passed Entity instance.'
       );
     }
@@ -63,6 +65,9 @@ final class SimpleEntityAccess {
         break;
       case 'file':
         return new File();
+        break;
+      case 'block':
+        return new Block();
         break;
       default:
         throw new SimpleEntitiesException(

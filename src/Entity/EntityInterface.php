@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleEntities\Entity;
+namespace EntityDecompose\Entity;
 
 /**
  * Base class structure for all Drupal Entity Types. 

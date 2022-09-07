@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleEntities\FieldTypes;
+namespace EntityDecompose\FieldTypes;
 
 /**
  * Group of text category fields.

@@ -1,8 +1,8 @@
 <?php
 
-namespace SimpleEntities\Entity;
+namespace EntityDecompose\Entity;
 
-use SimpleEntities\FieldTypes\Fields;
+use EntityDecompose\FieldTypes\Fields;
 
 /**
  * Handler for the Node Entity type.
@@ -23,7 +23,7 @@ abstract class BaseEntity implements EntityInterface {
   protected $resolvedEntity;
 
   /**
-   * @var \SimpleEntities\FieldTypes\FieldTypes $fieldTypes
+   * @var \EntityDecompose\FieldTypes\FieldTypes $fieldTypes
    *   Instance of the FieldTypes.
    */
   protected $fieldTypes;
@@ -44,7 +44,7 @@ abstract class BaseEntity implements EntityInterface {
   /**
    * Return a new Field instance.
    * 
-   * @return \SimpleEntities\FieldTypes\FieldTypes
+   * @return \EntityDecompose\FieldTypes\FieldTypes
    */
   private function getFieldTypesInstance() {
     return new Fields();

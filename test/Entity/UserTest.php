@@ -1,11 +1,11 @@
 <?php
 
-namespace SimpleEntitiesTest\Entity;
+namespace EntityDecomposeTest\Entity;
 
 use PHPUnit\Framework\TestCase;
 
-use \SimpleEntities\Entity\User;
-use \SimpleEntities\SimpleEntityAccess;
+use \EntityDecompose\Entity\User;
+use \EntityDecompose\EntityDecomposeAccess;
 
 class UserTest extends TestCase {
 
@@ -19,7 +19,7 @@ class UserTest extends TestCase {
 
   public function testUserMockObject() {
     $mockedUserInstance = new MockEntity('user', 'uid');
-    $sea = new SimpleEntityAccess();
+    $sea = new EntityDecomposeAccess();
     $parsedUser = $sea->parse($mockedUserInstance);
     $this->assertArrayHasKey('uid', $parsedUser);
     $this->assertSame(PHP_INT_MAX, $parsedUser['uid']);

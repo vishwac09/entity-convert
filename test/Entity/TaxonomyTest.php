@@ -1,11 +1,11 @@
 <?php
 
-namespace SimpleEntitiesTest\Entity;
+namespace EntityDecomposeTest\Entity;
 
 use PHPUnit\Framework\TestCase;
 
-use \SimpleEntities\Entity\Taxonomy;
-use \SimpleEntities\SimpleEntityAccess;
+use \EntityDecompose\Entity\Taxonomy;
+use \EntityDecompose\EntityDecomposeAccess;
 
 class TaxonomyTest extends TestCase {
 
@@ -19,7 +19,7 @@ class TaxonomyTest extends TestCase {
 
   public function testTaxonomyMockObject() {
     $mockedTaxonomyInstance = new MockEntity('taxonomy_term', 'tid');
-    $sea = new SimpleEntityAccess();
+    $sea = new EntityDecomposeAccess();
     $parsedTaxonomy = $sea->parse($mockedTaxonomyInstance);
     $this->assertArrayHasKey('tid', $parsedTaxonomy);
     $this->assertSame(PHP_INT_MAX, $parsedTaxonomy['tid']);

@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleEntities\Entity;
+namespace EntityDecompose\Entity;
 
 /**
  * Handler for the Node Entity type.

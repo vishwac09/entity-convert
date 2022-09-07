@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleEntities\FieldTypes;
+namespace EntityDecompose\FieldTypes;
 
 /**
  * Collection of Default Field type which drupal ships with.

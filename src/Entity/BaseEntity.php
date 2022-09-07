@@ -89,9 +89,10 @@ abstract class BaseEntity implements EntityInterface {
     $fieldTypeInstance = $fieldItemList->first() ?? null;
     if (isset($fieldTypeInstance)) {
       $field_def = $fieldTypeInstance->getFieldDefinition();
-      $setting_type = $field_def->getFieldStorageDefinition()->getSettings();
+      
       $type = $field_def->getType();
       if ($type == 'entity_reference') {
+        $setting_type = $field_def->getFieldStorageDefinition()->getSettings();
         return $this->fieldTypes->{'get_' . strtolower($type)}($fieldTypeInstance->getValue(), $setting_type);
       }
       else {

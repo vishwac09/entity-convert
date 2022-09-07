@@ -21,7 +21,7 @@ class TaxonomyTest extends TestCase {
     $mockedTaxonomyInstance = new MockEntity('taxonomy_term', 'tid');
     $sea = new SimpleEntityAccess();
     $parsedTaxonomy = $sea->parse($mockedTaxonomyInstance);
-    $this->assertSame(PHP_INT_MAX, $parsedTaxonomy->tid);
-    $this->assertNull($parsedTaxonomy->id);
+    $this->assertArrayHasKey('tid', $parsedTaxonomy);
+    $this->assertSame(PHP_INT_MAX, $parsedTaxonomy['tid']);
   }
 }

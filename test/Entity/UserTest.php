@@ -21,7 +21,7 @@ class UserTest extends TestCase {
     $mockedUserInstance = new MockEntity('user', 'uid');
     $sea = new SimpleEntityAccess();
     $parsedUser = $sea->parse($mockedUserInstance);
-    $this->assertSame(PHP_INT_MAX, $parsedUser->uid);
-    $this->assertNull($parsedUser->id);
+    $this->assertArrayHasKey('uid', $parsedUser);
+    $this->assertSame(PHP_INT_MAX, $parsedUser['uid']);
   }
 }

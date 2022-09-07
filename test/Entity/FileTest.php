@@ -21,7 +21,7 @@ class FileTest extends TestCase {
     $mockedFileInstance = new MockEntity('file', 'fid');
     $sea = new SimpleEntityAccess();
     $parsedFile = $sea->parse($mockedFileInstance);
-    $this->assertSame(PHP_INT_MAX, $parsedFile->fid);
-    $this->assertNull($parsedFile->id);
+    $this->assertArrayHasKey('fid', $parsedFile);
+    $this->assertSame(PHP_INT_MAX, $parsedFile['fid']);
   }
 }

@@ -22,7 +22,7 @@ class NodeTest extends TestCase {
     $mockedNodeInstance = new MockEntity('node', 'nid');
     $sea = new SimpleEntityAccess();
     $parsedNode = $sea->parse($mockedNodeInstance);
-    $this->assertSame(PHP_INT_MAX, $parsedNode->nid);
-    $this->assertNull($parsedNode->id);
+    $this->assertArrayHasKey('nid', $parsedNode);
+    $this->assertSame(PHP_INT_MAX, $parsedNode['nid']);
   }
 }

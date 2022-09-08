@@ -1,6 +1,6 @@
 <?php
 
-namespace EntityDecomposeTest\Entity;
+namespace EntityToArrayTest\Entity;
 
 class MockFieldsItemList {
   public function first() {

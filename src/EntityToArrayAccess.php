@@ -1,19 +1,19 @@
 <?php
 
-namespace EntityDecompose;
+namespace EntityToArray;
 
-use EntityDecompose\Entity\Block;
-use EntityDecompose\Entity\File;
-use EntityDecompose\Entity\Node;
-use EntityDecompose\Entity\Taxonomy;
-use EntityDecompose\Entity\User;
-use EntityDecompose\Entity\EntityInterface;
-use EntityDecompose\Exception\EntityDecomposeException;
+use EntityToArray\Entity\Block;
+use EntityToArray\Entity\File;
+use EntityToArray\Entity\Node;
+use EntityToArray\Entity\Taxonomy;
+use EntityToArray\Entity\User;
+use EntityToArray\Entity\EntityInterface;
+use EntityToArray\Exception\EntityToArrayException;
 
 /**
  * Helper class which simplifies access Entity objects fields & values. 
  */
-final class EntityDecomposeAccess {
+final class EntityToArrayAccess {
 
   /**
    * Default constructor.
@@ -36,7 +36,7 @@ final class EntityDecomposeAccess {
       return $parsedInstance->toArray();
     }
     catch (\Exception $e) {
-      throw new EntityDecomposeException(
+      throw new EntityToArrayException(
         'Unable to parse the passed Entity instance.'
       );
     }
@@ -48,9 +48,9 @@ final class EntityDecomposeAccess {
    * @param string $type
    *   The Entity instance to parse.
    * @return EntityInterface
-   *   Instance of \EntityDecompose\Entity\EntityInterface
+   *   Instance of \EntityToArray\Entity\EntityInterface
    *
-   * @throws EntityDecomposeException if invalid argument type
+   * @throws EntityToArrayException if invalid argument type
    */
   public function parseInstance($type) {
     // @todo remove this when php8.0 to match expression.
@@ -71,7 +71,7 @@ final class EntityDecomposeAccess {
         return new Block();
         break;
       default:
-        throw new EntityDecomposeException(
+        throw new EntityToArrayException(
           'Invalid Entity type passed, accepted node, file, taxonomy and user.'
         );
     }

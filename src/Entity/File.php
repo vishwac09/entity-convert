@@ -1,6 +1,6 @@
 <?php
 
-namespace EntityDecompose\Entity;
+namespace EntityToArray\Entity;
 
 /**
  * Handler for the File Entity type.

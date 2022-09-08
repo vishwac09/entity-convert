@@ -1,11 +1,11 @@
 <?php
 
-namespace EntityDecomposeTest\Entity;
+namespace EntityToArrayTest\Entity;
 
 use PHPUnit\Framework\TestCase;
 
-use \EntityDecompose\Entity\Node;
-use \EntityDecompose\EntityDecomposeAccess;
+use \EntityToArray\Entity\Node;
+use \EntityToArray\EntityToArrayAccess;
 
 
 class NodeTest extends TestCase {
@@ -20,7 +20,7 @@ class NodeTest extends TestCase {
 
   public function testNodeMockObject() {
     $mockedNodeInstance = new MockEntity('node', 'nid');
-    $sea = new EntityDecomposeAccess();
+    $sea = new EntityToArrayAccess();
     $parsedNode = $sea->parse($mockedNodeInstance);
     $this->assertArrayHasKey('nid', $parsedNode);
     $this->assertSame(PHP_INT_MAX, $parsedNode['nid']);

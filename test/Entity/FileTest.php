@@ -1,11 +1,11 @@
 <?php
 
-namespace EntityDecomposeTest\Entity;
+namespace EntityToArrayTest\Entity;
 
 use PHPUnit\Framework\TestCase;
 
-use \EntityDecompose\Entity\File;
-use \EntityDecompose\EntityDecomposeAccess;
+use \EntityToArray\Entity\File;
+use \EntityToArray\EntityToArrayAccess;
 
 class FileTest extends TestCase {
 
@@ -19,7 +19,7 @@ class FileTest extends TestCase {
 
   public function testFileMockObject() {
     $mockedFileInstance = new MockEntity('file', 'fid');
-    $sea = new EntityDecomposeAccess();
+    $sea = new EntityToArrayAccess();
     $parsedFile = $sea->parse($mockedFileInstance);
     $this->assertArrayHasKey('fid', $parsedFile);
     $this->assertSame(PHP_INT_MAX, $parsedFile['fid']);

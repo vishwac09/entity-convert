@@ -1,10 +1,10 @@
 <?php
 
-namespace EntityDecompose\FieldTypes;
+namespace EntityToArray\FieldTypes;
 
-use EntityDecompose\Entity\File;
-use EntityDecompose\Entity\Image;
-use EntityDecompose\EntityDecomposeAccess;
+use EntityToArray\Entity\File;
+use EntityToArray\Entity\Image;
+use EntityToArray\EntityToArrayAccess;
 
 use Drupal\file\Entity\File as DrupalFile;
 

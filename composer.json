@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "EntityDecompose\\": "src/"
+            "EntityToArray\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "EntityDecomposeTest\\": "test/"
+            "EntityToArrayTest\\": "test/"
         }
     },
     "require": {

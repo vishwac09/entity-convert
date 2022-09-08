@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleEntities\Entity;
+namespace EntityToArray\Entity;
 
 /**
  * Base class structure for all Drupal Entity Types. 

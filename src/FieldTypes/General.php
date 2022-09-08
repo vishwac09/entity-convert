@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleEntities\FieldTypes;
+namespace EntityToArray\FieldTypes;
 
 /**
  * Group of general category fields.

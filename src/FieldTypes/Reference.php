@@ -1,10 +1,10 @@
 <?php
 
-namespace SimpleEntities\FieldTypes;
+namespace EntityToArray\FieldTypes;
 
-use SimpleEntities\Entity\File;
-use SimpleEntities\Entity\Image;
-use SimpleEntities\SimpleEntityAccess;
+use EntityToArray\Entity\File;
+use EntityToArray\Entity\Image;
+use EntityToArray\EntityToArrayAccess;
 
 use Drupal\file\Entity\File as DrupalFile;
 

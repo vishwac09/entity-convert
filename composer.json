@@ -1,5 +1,5 @@
 {
-    "name": "vishwac09/simple_entities",
+    "name": "vishwac09/entity-decompose",
     "description": "Parse Drupal entities",
     "type": "library",
     "license": "MIT",
@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "SimpleEntities\\": "src/"
+            "EntityToArray\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SimpleEntitiesTest\\": "test/"
+            "EntityToArrayTest\\": "test/"
         }
     },
     "require": {
@@ -24,8 +24,7 @@
     },
     "minimum-stability": "dev",
     "require-dev": {
-        "phpunit/phpunit": "9.5.x-dev",
-        "phpspec/prophecy": "1.x-dev"
+        "phpunit/phpunit": "9.5.x-dev"
     },
     "scripts": {
         "tests": "./vendor/bin/phpunit --colors test/"

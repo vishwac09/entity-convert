@@ -1,11 +1,11 @@
 <?php
 
-namespace SimpleEntitiesTest\Entity;
+namespace EntityToArrayTest\Entity;
 
 use PHPUnit\Framework\TestCase;
 
-use \SimpleEntities\Entity\Node;
-use \SimpleEntities\SimpleEntityAccess;
+use \EntityToArray\Entity\Node;
+use \EntityToArray\EntityToArrayAccess;
 
 
 class NodeTest extends TestCase {
@@ -20,7 +20,7 @@ class NodeTest extends TestCase {
 
   public function testNodeMockObject() {
     $mockedNodeInstance = new MockEntity('node', 'nid');
-    $sea = new SimpleEntityAccess();
+    $sea = new EntityToArrayAccess();
     $parsedNode = $sea->parse($mockedNodeInstance);
     $this->assertArrayHasKey('nid', $parsedNode);
     $this->assertSame(PHP_INT_MAX, $parsedNode['nid']);

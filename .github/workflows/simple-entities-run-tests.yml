@@ -1,4 +1,4 @@
-name: Run Test cases on SimpleEntities repository
+name: Execute the Test Cases
 on:
   push:
     branches: [master]

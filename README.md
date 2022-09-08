@@ -1,6 +1,6 @@
-# Simplified Entity Objects
+# EntityToArray
 
-PHP Library built to be used with Drupal code base/modules only. Parses then simplifies the passed Node/Taxonomy/User fully loaded object into Simplified array of fields or a simple object which can be used directly in any view or to build a rest response.
+PHP Library built to be used with Drupal codebase/modules only. **Parses** then simplifies the passed Node/Taxonomy/User/File (Drupal entities) fully loaded object into Simple array of fields which can be used directly in any view or to build a rest response.
 
 > I decided to write this library to reduce the need to write custom classes/methods around entities to get value from different types of fields associated with the Entity objects.
 
@@ -18,11 +18,13 @@ Consider a Node object with following fields associated with it.
 - Timestamp/Date
 - Link
 - Email
+- ...
 
 #### <ins>Drupal Way</ins>
 
 ```
 
 $node = Node::load(1);
+$field_boolean_value = $node->get('field_boolean_value')->value;
 
 ```

@@ -1,19 +1,19 @@
 <?php
 
-namespace SimpleEntities;
+namespace EntityToArray;
 
-use SimpleEntities\Entity\Block;
-use SimpleEntities\Entity\File;
-use SimpleEntities\Entity\Node;
-use SimpleEntities\Entity\Taxonomy;
-use SimpleEntities\Entity\User;
-use SimpleEntities\Entity\EntityInterface;
-use SimpleEntities\Exception\SimpleEntitiesException;
+use EntityToArray\Entity\Block;
+use EntityToArray\Entity\File;
+use EntityToArray\Entity\Node;
+use EntityToArray\Entity\Taxonomy;
+use EntityToArray\Entity\User;
+use EntityToArray\Entity\EntityInterface;
+use EntityToArray\Exception\EntityToArrayException;
 
 /**
  * Helper class which simplifies access Entity objects fields & values. 
  */
-final class SimpleEntityAccess {
+final class EntityToArrayAccess {
 
   /**
    * Default constructor.
@@ -34,8 +34,9 @@ final class SimpleEntityAccess {
       $obj = $this->parseInstance($instance->getEntityTypeId());
       $parsedInstance = $obj->parse($instance);
       return $parsedInstance->toArray();
-    } catch (\Exception $e) {
-      throw new SimpleEntitiesException(
+    }
+    catch (\Exception $e) {
+      throw new EntityToArrayException(
         'Unable to parse the passed Entity instance.'
       );
     }
@@ -47,9 +48,9 @@ final class SimpleEntityAccess {
    * @param string $type
    *   The Entity instance to parse.
    * @return EntityInterface
-   *   Instance of \SimpleEntities\Entity\EntityInterface
+   *   Instance of \EntityToArray\Entity\EntityInterface
    *
-   * @throws SimpleEntitiesException if invalid argument type
+   * @throws EntityToArrayException if invalid argument type
    */
   public function parseInstance($type) {
     // @todo remove this when php8.0 to match expression.
@@ -70,8 +71,8 @@ final class SimpleEntityAccess {
         return new Block();
         break;
       default:
-        throw new SimpleEntitiesException(
-          'Invalid Entity type passed, accepted node, taxonomy and user.'
+        throw new EntityToArrayException(
+          'Invalid Entity type passed, accepted node, file, taxonomy and user.'
         );
     }
   }

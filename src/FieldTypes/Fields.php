@@ -50,7 +50,7 @@ class Fields {
    * @return string
    */
   public function get_changed($value) {
-    return $value['value'];
+    return $this->preserveType ? (int) $value['value'] : $value['value'];
   }
 
   /**
@@ -62,7 +62,7 @@ class Fields {
    * @return string
    */
   public function get_created($value) {
-    return $value['value'];
+    return $this->preserveType ? (int) $value['value'] : $value['value'];
   }
 
   /**

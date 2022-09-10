@@ -19,13 +19,11 @@ trait Reference {
    * 
    * @param array $value
    *   The value of the field.
-   * @param array $setting
-   *   The type of the value.
    * 
    * @return BaseEntity
    */
-  public function get_entity_reference($value, $setting) {
-    return $value['target_id'];
+  public function get_entity_reference($value) {
+    return $this->preserveType ? (int) $value['target_id'] : $value['target_id'];
   }
   
   /**

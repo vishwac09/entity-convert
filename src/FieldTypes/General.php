@@ -40,7 +40,7 @@ trait General {
    * @return string
    */
   public function get_datetime($value) {
-    return new \DateTime($value['value']);
+    return $value['value'];
   }
 
   /**

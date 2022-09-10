@@ -25,7 +25,7 @@ $node->toArray();
 
 1. From the root of your Drupal project run. Link to [Packagist](https://packagist.org/packages/vishwac09/entity-convert)
 ```bash
-$ composer require vishwac09/entity-convert:0.0.1-dev
+$ composer require vishwac09/entity-convert:0.0.1-alpha
 ```
 
 

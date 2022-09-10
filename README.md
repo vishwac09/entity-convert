@@ -1,5 +1,7 @@
 # EntityConvert
 
+[![Test Cases](https://github.com/vishwac09/entity-convert/actions/workflows/simple-entities-run-tests.yml/badge.svg?branch=master)](https://github.com/vishwac09/entity-convert/actions/workflows/simple-entities-run-tests.yml)
+
 PHP Library built to be used with **Drupal** codebase/modules only. **Parses** and simplifies the passed Node/Taxonomy/User/File (drupal entities) fully loaded object into a Simple array of fields or an Object which can be used directly to build any view or REST response layer.
 
 Usually we implement helper classes/methods to resolve the field values for a given entity instance, the idea behind this is always to reduce duplicate code and to provide a uniform interface to access the field values.

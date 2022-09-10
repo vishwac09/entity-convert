@@ -1,8 +1,8 @@
 <?php
 
-namespace EntityToArray\Entity;
+namespace EntityConvert\Entity;
 
-use EntityToArray\FieldTypes\Fields;
+use EntityConvert\FieldTypes\Fields;
 
 /**
  * Handler for the Node Entity type.
@@ -12,9 +12,7 @@ abstract class BaseEntity implements EntityInterface {
   /**
    * Default constructor.
    */
-  function __construct($render_child = true) {
-    $this->render_child = $render_child;
-  }
+  function __construct() {}
 
   /**
    * @var array $resolvedEntity
@@ -23,16 +21,10 @@ abstract class BaseEntity implements EntityInterface {
   protected $resolvedEntity;
 
   /**
-   * @var \EntityToArray\FieldTypes\FieldTypes $fieldTypes
+   * @var \EntityConvert\FieldTypes\FieldTypes $fieldTypes
    *   Instance of the FieldTypes.
    */
   protected $fieldTypes;
-
-  /**
-   * @var Boolean $render_child
-   *   Flag representing to render child entities.
-   */
-  protected $render_child;
 
   /**
    * Magic method to return the property value.
@@ -44,10 +36,13 @@ abstract class BaseEntity implements EntityInterface {
   /**
    * Return a new Field instance.
    * 
-   * @return \EntityToArray\FieldTypes\FieldTypes
+   * @param Boolean $strict_type
+   *   Flag indicating variable types should be preserved.
+   * 
+   * @return \EntityConvert\FieldTypes\FieldTypes
    */
-  private function getFieldTypesInstance() {
-    return new Fields();
+  private function getFieldTypesInstance($strict_type = false) {
+    return new Fields($strict_type);
   }
 
   /**
@@ -61,9 +56,9 @@ abstract class BaseEntity implements EntityInterface {
   /**
    * @{inheritdoc}
    */
-  public function parse($instance) {
+  public function parse($instance, $strict_type = false) {
     $fields = $instance->getFields();
-    $this->fieldTypes = $this->getFieldTypesInstance();
+    $this->fieldTypes = $this->getFieldTypesInstance($strict_type);
     foreach ($fields as $name => $field) {
       $this->resolvedEntity[$name] = $this->parseField($name, $field);
     }
@@ -114,6 +109,7 @@ abstract class BaseEntity implements EntityInterface {
         $field_def = $fieldTypeInstance->getFieldDefinition();
         $setting_type = $field_def->getFieldStorageDefinition()->getSettings();
         $type = $field_def->getType();
+        // @todo render associated entities.
         if ($type == 'entity_reference') {
           $value[$iterator->key()] = $this->fieldTypes->{'get_' . strtolower($type)}($fieldTypeInstance->getValue(), $setting_type);
         }

@@ -1,8 +1,8 @@
 <?php
 
-namespace EntityToArrayTest\Entity;
+namespace EntityConvertTest\Entity\Mock;
 
-class MockFieldsItemList {
+class FieldsItemList {
   public function first() {
     return new MockFieldTypeInstance();
   }

@@ -1,12 +1,12 @@
 <?php
 
-namespace EntityToArrayTest\Entity;
+namespace EntityConvertTest\Entity;
 
 use PHPUnit\Framework\TestCase;
 
-use \EntityToArray\Entity\Node;
-use \EntityToArray\EntityToArrayAccess;
-
+use EntityConvert\Entity\Node;
+use EntityConvert\EntityConvertAccess;
+use EntityConvertTest\Entity\Mock\Entity;
 
 class NodeTest extends TestCase {
 
@@ -19,9 +19,9 @@ class NodeTest extends TestCase {
   }
 
   public function testNodeMockObject() {
-    $mockedNodeInstance = new MockEntity('node', 'nid');
-    $sea = new EntityToArrayAccess();
-    $parsedNode = $sea->parse($mockedNodeInstance);
+    $mockedNodeInstance = new Entity('node', 'nid');
+    $sea = new EntityConvertAccess();
+    $parsedNode = $sea->toArray($mockedNodeInstance);
     $this->assertArrayHasKey('nid', $parsedNode);
     $this->assertSame(PHP_INT_MAX, $parsedNode['nid']);
   }

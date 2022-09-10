@@ -1,10 +1,11 @@
 <?php
 
-namespace EntityToArray\FieldTypes;
+namespace EntityConvert\FieldTypes;
 
-use EntityToArray\Entity\File;
-use EntityToArray\Entity\Image;
-use EntityToArray\EntityToArrayAccess;
+use EntityConvert\EntityConvertAccess;
+use EntityConvert\Entity\File;
+use EntityConvert\Entity\Image;
+
 
 use Drupal\file\Entity\File as DrupalFile;
 

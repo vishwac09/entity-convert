@@ -1,6 +1,6 @@
 <?php
 
-namespace EntityToArray\FieldTypes;
+namespace EntityConvert\FieldTypes;
 
 /**
  * Group of number category fields.

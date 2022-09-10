@@ -1,11 +1,12 @@
 <?php
 
-namespace EntityToArrayTest\Entity;
+namespace EntityConvertTest\Entity;
 
 use PHPUnit\Framework\TestCase;
 
-use \EntityToArray\Entity\User;
-use \EntityToArray\EntityToArrayAccess;
+use EntityConvert\Entity\User;
+use EntityConvert\EntityConvertAccess;
+use EntityConvertTest\Entity\Mock\Entity;
 
 class UserTest extends TestCase {
 
@@ -18,9 +19,9 @@ class UserTest extends TestCase {
   }
 
   public function testUserMockObject() {
-    $mockedUserInstance = new MockEntity('user', 'uid');
-    $sea = new EntityToArrayAccess();
-    $parsedUser = $sea->parse($mockedUserInstance);
+    $mockedUserInstance = new Entity('user', 'uid');
+    $sea = new EntityConvertAccess();
+    $parsedUser = $sea->toArray($mockedUserInstance);
     $this->assertArrayHasKey('uid', $parsedUser);
     $this->assertSame(PHP_INT_MAX, $parsedUser['uid']);
   }

@@ -1,8 +1,8 @@
 <?php
 
-namespace EntityToArrayTest\Entity;
+namespace EntityConvertTest\Entity\Mock;
 
-class MockEntity {
+class Entity {
 
   /**
    * Type of entity node, taxonomy, user, file.
@@ -27,7 +27,7 @@ class MockEntity {
    */
   public function getFields() {
     return [
-      $this->field => new MockFieldsItemList()
+      $this->field => new FieldsItemList()
     ];
   }
 

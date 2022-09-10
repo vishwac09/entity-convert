@@ -1,11 +1,12 @@
 <?php
 
-namespace EntityToArrayTest\Entity;
+namespace EntityConvertTest\Entity;
 
 use PHPUnit\Framework\TestCase;
 
-use \EntityToArray\Entity\Taxonomy;
-use \EntityToArray\EntityToArrayAccess;
+use EntityConvert\Entity\Taxonomy;
+use EntityConvert\EntityConvertAccess;
+use EntityConvertTest\Entity\Mock\Entity;
 
 class TaxonomyTest extends TestCase {
 
@@ -18,9 +19,9 @@ class TaxonomyTest extends TestCase {
   }
 
   public function testTaxonomyMockObject() {
-    $mockedTaxonomyInstance = new MockEntity('taxonomy_term', 'tid');
-    $sea = new EntityToArrayAccess();
-    $parsedTaxonomy = $sea->parse($mockedTaxonomyInstance);
+    $mockedTaxonomyInstance = new Entity('taxonomy_term', 'tid');
+    $sea = new EntityConvertAccess();
+    $parsedTaxonomy = $sea->toArray($mockedTaxonomyInstance);
     $this->assertArrayHasKey('tid', $parsedTaxonomy);
     $this->assertSame(PHP_INT_MAX, $parsedTaxonomy['tid']);
   }

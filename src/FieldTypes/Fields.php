@@ -1,6 +1,6 @@
 <?php
 
-namespace EntityToArray\FieldTypes;
+namespace EntityConvert\FieldTypes;
 
 /**
  * Collection of Default Field type which drupal ships with.
@@ -122,6 +122,18 @@ class Fields {
    * @return string
    */
   public function get_uuid($value) {
+    return $value['value'];
+  }
+
+  /**
+   * Resolver for field having type as file_uri.
+   * 
+   * @param array $value
+   *   The value of the field.
+   * 
+   * @return string
+   */
+  public function get_file_uri($value) {
     return $value['value'];
   }
 }

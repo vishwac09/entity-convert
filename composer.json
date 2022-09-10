@@ -1,6 +1,6 @@
 {
-    "name": "vishwac09/entity-decompose",
-    "description": "Parse Drupal entities",
+    "name": "vishwac09/entity-convert",
+    "description": "Converts Drupal entity objects into simple array of fields.",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -11,18 +11,18 @@
     ],
     "autoload": {
         "psr-4": {
-            "EntityToArray\\": "src/"
+            "EntityConvert\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "EntityToArrayTest\\": "test/"
+            "EntityConvertTest\\": "test/"
         }
     },
     "require": {
         "php": "^7.2 || ^8.0"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require-dev": {
         "phpunit/phpunit": "9.5.x-dev"
     },

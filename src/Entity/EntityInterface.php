@@ -1,6 +1,6 @@
 <?php
 
-namespace EntityToArray\Entity;
+namespace EntityConvert\Entity;
 
 /**
  * Base class structure for all Drupal Entity Types. 
@@ -9,12 +9,14 @@ interface EntityInterface {
   /**
    * Parse the passed Entity instance.
    * 
-   * @param Object instance
+   * @param Object $instance
    *   The Entity instance to parse.
+   * @param Boolean $strict_type
+   *   Flag indicating variable types should be preserved.
    * 
    * @return mixed
    */
-  public function parse($instance);
+  public function parse($instance, $strict_type = false);
 
   /**
    * Parse the passed Field instance.

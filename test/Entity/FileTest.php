@@ -1,11 +1,12 @@
 <?php
 
-namespace EntityToArrayTest\Entity;
+namespace EntityConvertTest\Entity;
 
 use PHPUnit\Framework\TestCase;
 
-use \EntityToArray\Entity\File;
-use \EntityToArray\EntityToArrayAccess;
+use EntityConvert\Entity\File;
+use EntityConvert\EntityConvertAccess;
+use EntityConvertTest\Entity\Mock\Entity;
 
 class FileTest extends TestCase {
 
@@ -18,9 +19,9 @@ class FileTest extends TestCase {
   }
 
   public function testFileMockObject() {
-    $mockedFileInstance = new MockEntity('file', 'fid');
-    $sea = new EntityToArrayAccess();
-    $parsedFile = $sea->parse($mockedFileInstance);
+    $mockedFileInstance = new Entity('file', 'fid');
+    $sea = new EntityConvertAccess();
+    $parsedFile = $sea->toArray($mockedFileInstance);
     $this->assertArrayHasKey('fid', $parsedFile);
     $this->assertSame(PHP_INT_MAX, $parsedFile['fid']);
   }

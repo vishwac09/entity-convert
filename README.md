@@ -220,9 +220,6 @@ The methods toArray/toObject (instance, strict_type) accepts 2 arguments.
     - instance = Loaded instance object of the type Node/User/Taxonomy/File.
     - strict_type = Boolean: Returned response has all data types preserved.
 
-|Head|DAS|
-|**|**|
-
 When we get value from field attached to an Entity, drupal will usually return all values as string. Sending second parameter as true, the library will typecast all the value to correct data type.
 
 ```php

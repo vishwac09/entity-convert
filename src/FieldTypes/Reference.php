@@ -2,7 +2,7 @@
 
 namespace EntityConvert\FieldTypes;
 
-use EntityConvert\EntityConvertAccess;
+use EntityConvert\EntityConvertFactory;
 use EntityConvert\Entity\File;
 use EntityConvert\Entity\Image;
 

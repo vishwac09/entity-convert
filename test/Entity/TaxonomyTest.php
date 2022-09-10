@@ -5,7 +5,7 @@ namespace EntityConvertTest\Entity;
 use PHPUnit\Framework\TestCase;
 
 use EntityConvert\Entity\Taxonomy;
-use EntityConvert\EntityConvertAccess;
+use EntityConvert\EntityConvertFactory;
 use EntityConvertTest\Entity\Mock\Entity;
 
 class TaxonomyTest extends TestCase {
@@ -20,7 +20,7 @@ class TaxonomyTest extends TestCase {
 
   public function testTaxonomyMockObject() {
     $mockedTaxonomyInstance = new Entity('taxonomy_term', 'tid');
-    $sea = new EntityConvertAccess();
+    $sea = new EntityConvertFactory();
     $parsedTaxonomy = $sea->toArray($mockedTaxonomyInstance);
     $this->assertArrayHasKey('tid', $parsedTaxonomy);
     $this->assertSame(PHP_INT_MAX, $parsedTaxonomy['tid']);

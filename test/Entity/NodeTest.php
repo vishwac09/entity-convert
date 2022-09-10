@@ -5,7 +5,7 @@ namespace EntityConvertTest\Entity;
 use PHPUnit\Framework\TestCase;
 
 use EntityConvert\Entity\Node;
-use EntityConvert\EntityConvertAccess;
+use EntityConvert\EntityConvertFactory;
 use EntityConvertTest\Entity\Mock\Entity;
 
 class NodeTest extends TestCase {
@@ -20,7 +20,7 @@ class NodeTest extends TestCase {
 
   public function testNodeMockObject() {
     $mockedNodeInstance = new Entity('node', 'nid');
-    $sea = new EntityConvertAccess();
+    $sea = new EntityConvertFactory();
     $parsedNode = $sea->toArray($mockedNodeInstance);
     $this->assertArrayHasKey('nid', $parsedNode);
     $this->assertSame(PHP_INT_MAX, $parsedNode['nid']);

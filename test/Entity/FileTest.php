@@ -5,7 +5,7 @@ namespace EntityConvertTest\Entity;
 use PHPUnit\Framework\TestCase;
 
 use EntityConvert\Entity\File;
-use EntityConvert\EntityConvertAccess;
+use EntityConvert\EntityConvertFactory;
 use EntityConvertTest\Entity\Mock\Entity;
 
 class FileTest extends TestCase {
@@ -20,7 +20,7 @@ class FileTest extends TestCase {
 
   public function testFileMockObject() {
     $mockedFileInstance = new Entity('file', 'fid');
-    $sea = new EntityConvertAccess();
+    $sea = new EntityConvertFactory();
     $parsedFile = $sea->toArray($mockedFileInstance);
     $this->assertArrayHasKey('fid', $parsedFile);
     $this->assertSame(PHP_INT_MAX, $parsedFile['fid']);

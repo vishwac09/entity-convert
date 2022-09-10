@@ -13,7 +13,7 @@ use EntityConvert\Exception\EntityConvertException;
 /**
  * Helper class which simplifies access Entity objects fields & values. 
  */
-final class EntityConvertAccess {
+final class EntityConvertFactory {
 
   /**
    * Default constructor.

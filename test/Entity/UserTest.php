@@ -5,7 +5,7 @@ namespace EntityConvertTest\Entity;
 use PHPUnit\Framework\TestCase;
 
 use EntityConvert\Entity\User;
-use EntityConvert\EntityConvertAccess;
+use EntityConvert\EntityConvertFactory;
 use EntityConvertTest\Entity\Mock\Entity;
 
 class UserTest extends TestCase {
@@ -20,7 +20,7 @@ class UserTest extends TestCase {
 
   public function testUserMockObject() {
     $mockedUserInstance = new Entity('user', 'uid');
-    $sea = new EntityConvertAccess();
+    $sea = new EntityConvertFactory();
     $parsedUser = $sea->toArray($mockedUserInstance);
     $this->assertArrayHasKey('uid', $parsedUser);
     $this->assertSame(PHP_INT_MAX, $parsedUser['uid']);

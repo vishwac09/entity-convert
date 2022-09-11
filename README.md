@@ -2,6 +2,8 @@
 
 [![Test Cases](https://github.com/vishwac09/entity-convert/actions/workflows/simple-entities-run-tests.yml/badge.svg?branch=master)](https://github.com/vishwac09/entity-convert/actions/workflows/simple-entities-run-tests.yml)
 
+[![Latest Stable Version](http://poser.pugx.org/drupal-utils/entity-convert/v)](https://packagist.org/packages/drupal-utils/entity-convert) [![Total Downloads](http://poser.pugx.org/drupal-utils/entity-convert/downloads)](https://packagist.org/packages/drupal-utils/entity-convert) [![Latest Unstable Version](http://poser.pugx.org/drupal-utils/entity-convert/v/unstable)](https://packagist.org/packages/drupal-utils/entity-convert) [![License](http://poser.pugx.org/drupal-utils/entity-convert/license)](https://packagist.org/packages/drupal-utils/entity-convert)
+
 PHP Library built to be used with **Drupal** codebase/modules only. **Parses** and simplifies the passed Node/Taxonomy/User/File (drupal entities) fully loaded object into a Simple array of fields or an Object which can be used directly to build any view or REST response layer.
 
 Usually we implement helper classes/methods to resolve the field values for a given entity instance, the idea behind this is always to reduce duplicate code and to provide a uniform interface to access the field values.
@@ -23,9 +25,9 @@ $node->toArray();
 
 <ins>**Get from Packagist using Composer**</ins>
 
-1. From the root of your Drupal project run. Link to [Packagist](https://packagist.org)
+1. From the root of your Drupal project run. Link to [Packagist](https://packagist.org/packages/drupal-utils/entity-convert)
 ```bash
-$ composer require drupal-utils/entity-convert:0.0.1-alpha
+composer require drupal-utils/entity-convert:0.0.1-alpha
 ```
 
 
@@ -227,9 +229,9 @@ When we get value from field attached to an Entity, drupal will usually return a
 | Method  | Parameters | Comment |
 | ------------- | ------------- | ------------- |
 | toArray  | ```$instance```  | Object of type Node/User/Taxonomy or File |
-| &nbsp; | ```$strict_type``` = FALSE | Boolean flag representing whether value to be type casted|
+| &nbsp; | ```$strict_type``` = false | Boolean flag representing whether value to be type casted|
 | toObject  | ```$instance```  | Object of type Node/User/Taxonomy or File |
-| &nbsp; | ```$strict_type``` = FALSE | Boolean flag representing whether value to be type casted|
+| &nbsp; | ```$strict_type``` = false | Boolean flag representing whether value to be type casted|
 
 ```php
 use DrupalUtils\EntityConvert\EntityConvert;
@@ -242,7 +244,7 @@ $entityConvert->toObject($instance, false);
 // The toArray method accepts 2 arguments.
 
 /**
- * Parse the given entity instance.
+ * Parse the given entity instance and return array.
  *
  * @param Object $instance
  *   The Entity instance to parse.
@@ -256,7 +258,7 @@ function toArray($instance, $strict_type = false);
 // The toObject method accepts 2 arguments.
 
 /**
- * Parse the given entity instance.
+ * Parse the given entity instance and return object.
  *
  * @param Object $instance
  *   The Entity instance to parse.

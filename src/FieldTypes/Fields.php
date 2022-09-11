@@ -1,6 +1,6 @@
 <?php
 
-namespace EntityConvert\FieldTypes;
+namespace DrupalUtils\EntityConvert\FieldTypes;
 
 /**
  * Collection of Default Field type which drupal ships with.

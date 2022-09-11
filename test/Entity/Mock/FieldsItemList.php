@@ -1,6 +1,6 @@
 <?php
 
-namespace EntityConvertTest\Entity\Mock;
+namespace DrupalUtils\EntityConvertTest\Entity\Mock;
 
 class FieldsItemList {
   public function first() {

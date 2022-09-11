@@ -1,6 +1,6 @@
 <?php
 
-namespace EntityConvert\Entity;
+namespace DrupalUtils\EntityConvert\Entity;
 
 /**
  * Handler for the Node Entity type.

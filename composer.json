@@ -1,5 +1,5 @@
 {
-    "name": "vishwac09/entity-convert",
+    "name": "drupal-utils/entity-convert",
     "description": "Converts Drupal entity objects into simple array of fields.",
     "type": "library",
     "license": "MIT",
@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "EntityConvert\\": "src/"
+            "DrupalUtils\\EntityConvert\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "EntityConvertTest\\": "test/"
+            "DrupalUtils\\EntityConvertTest\\": "test/"
         }
     },
     "require": {

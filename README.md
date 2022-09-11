@@ -23,9 +23,9 @@ $node->toArray();
 
 <ins>**Get from Packagist using Composer**</ins>
 
-1. From the root of your Drupal project run. Link to [Packagist](https://packagist.org/packages/vishwac09/entity-convert)
+1. From the root of your Drupal project run. Link to [Packagist](https://packagist.org)
 ```bash
-$ composer require vishwac09/entity-convert:0.0.1-alpha
+$ composer require drupal-utils/entity-convert:0.0.1-alpha
 ```
 
 
@@ -111,23 +111,23 @@ array(2) { [0]=> array(1) { ["value"]=> string(5) "apple" } [1]=> array(1) { ["v
 ```php
 use Drupal\node\Entity\Node;
 // Include the library.
-use EntityConvert\EntityConvertFactory;
+use DrupalUtils\EntityConvert\EntityConvert;
  
 // Load instance of node
 $node = Node::load(1);
  
 // Creating a new Instance.
-$entityConvert = new EntityConvertFactory();
+$entityConvert = new EntityConvert();
  
 // Pass on the Node object to get the parsed value as array.
-$parsedNode = $entityCovert->toArray($node, false);
+$parsedNode = $entityConvert->toArray($node, false);
 ```
 
 <ins>**Get response as array of field => values**</ins>
 
 ```php
 // Pass on the Node object to get the parsed value as array.
-$parsedNode = $entityCovert->toArray($node, false);
+$parsedNode = $entityConvert->toArray($node, false);
 
 var_dump($parsedNode);
 
@@ -201,7 +201,7 @@ If the response is an object, all available fields/values can be accessed as a p
 
 ```php
 // Pass on the Node object to get the parsed value as array.
-$parsedNode = $entityCovert->toObject($node, true);
+$parsedNode = $entityConvert->toObject($node, true);
 
 var_dump($parsedNode->nid);
 int(1)
@@ -222,10 +222,19 @@ The methods toArray/toObject (instance, strict_type) accepts 2 arguments.
 
 When we get value from field attached to an Entity, drupal will usually return all values as string. Sending second parameter as true, the library will typecast all the value to correct data type.
 
-```php
-use EntityConvert\EntityConvertFactory;
+**Reference**
 
-$entityConvert = new EntityConvertFactory();
+| Method  | Parameters | Comment |
+| ------------- | ------------- | ------------- |
+| toArray  | ```$instance```  | Object of type Node/User/Taxonomy or File |
+| &nbsp; | ```$strict_type``` = FALSE | Boolean flag representing whether value to be type casted|
+| toObject  | ```$instance```  | Object of type Node/User/Taxonomy or File |
+| &nbsp; | ```$strict_type``` = FALSE | Boolean flag representing whether value to be type casted|
+
+```php
+use DrupalUtils\EntityConvert\EntityConvert;
+
+$entityConvert = new EntityConvert();
 // $instance == Node/User/Taxonomy/File.
 $entityConvert->toArray($instance, true);
 $entityConvert->toObject($instance, false);

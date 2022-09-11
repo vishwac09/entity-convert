@@ -1,19 +1,18 @@
 <?php
 
-namespace EntityConvert;
+namespace DrupalUtils\EntityConvert;
 
-use EntityConvert\Entity\Block;
-use EntityConvert\Entity\File;
-use EntityConvert\Entity\Node;
-use EntityConvert\Entity\Taxonomy;
-use EntityConvert\Entity\User;
-use EntityConvert\Entity\EntityInterface;
-use EntityConvert\Exception\EntityConvertException;
+use DrupalUtils\EntityConvert\Entity\File;
+use DrupalUtils\EntityConvert\Entity\Node;
+use DrupalUtils\EntityConvert\Entity\Taxonomy;
+use DrupalUtils\EntityConvert\Entity\User;
+use DrupalUtils\EntityConvert\Entity\EntityInterface;
+use DrupalUtils\EntityConvert\Exception\EntityConvertException;
 
 /**
  * Helper class which simplifies access Entity objects fields & values. 
  */
-final class EntityConvertFactory {
+final class EntityConvert {
 
   /**
    * Default constructor.

@@ -1,5 +1,5 @@
 <?php
 
-namespace EntityConvert\Exception;
+namespace DrupalUtils\EntityConvert\Exception;
 
 class EntityConvertException extends \Exception {}

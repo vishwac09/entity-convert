@@ -1,6 +1,6 @@
 <?php
 
-namespace EntityConvert\Entity;
+namespace DrupalUtils\EntityConvert\Entity;
 
 /**
  * Base class structure for all Drupal Entity Types. 

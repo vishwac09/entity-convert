@@ -1,12 +1,12 @@
 <?php
 
-namespace EntityConvertTest\Entity;
+namespace DrupalUtils\EntityConvertTest\Entity;
 
 use PHPUnit\Framework\TestCase;
 
-use EntityConvert\Entity\User;
-use EntityConvert\EntityConvertFactory;
-use EntityConvertTest\Entity\Mock\Entity;
+use DrupalUtils\EntityConvert\Entity\User;
+use DrupalUtils\EntityConvert\EntityConvert;
+use DrupalUtils\EntityConvertTest\Entity\Mock\Entity;
 
 class UserTest extends TestCase {
 
@@ -20,7 +20,7 @@ class UserTest extends TestCase {
 
   public function testUserMockObject() {
     $mockedUserInstance = new Entity('user', 'uid');
-    $sea = new EntityConvertFactory();
+    $sea = new EntityConvert();
     $parsedUser = $sea->toArray($mockedUserInstance);
     $this->assertArrayHasKey('uid', $parsedUser);
     $this->assertSame(PHP_INT_MAX, $parsedUser['uid']);

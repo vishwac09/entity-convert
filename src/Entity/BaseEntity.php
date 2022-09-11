@@ -1,8 +1,8 @@
 <?php
 
-namespace EntityConvert\Entity;
+namespace DrupalUtils\EntityConvert\Entity;
 
-use EntityConvert\FieldTypes\Fields;
+use DrupalUtils\EntityConvert\FieldTypes\Fields;
 
 /**
  * Handler for the Node Entity type.

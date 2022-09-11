@@ -1,11 +1,10 @@
 <?php
 
-namespace EntityConvert\FieldTypes;
+namespace DrupalUtils\EntityConvert\FieldTypes;
 
-use EntityConvert\EntityConvertFactory;
-use EntityConvert\Entity\File;
-use EntityConvert\Entity\Image;
-
+use DrupalUtils\EntityConvert\EntityConvertFactory;
+use DrupalUtils\EntityConvert\Entity\File;
+use DrupalUtils\EntityConvert\Entity\Image;
 
 use Drupal\file\Entity\File as DrupalFile;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace EntityConvert\FieldTypes;
+namespace DrupalUtils\EntityConvert\FieldTypes;
 
 /**
  * Group of number category fields.

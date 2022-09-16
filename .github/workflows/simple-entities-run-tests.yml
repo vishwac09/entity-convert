@@ -1,7 +1,7 @@
 name: Execute the Test Cases
 on:
   push:
-    branches: [master]
+    branches: [master, 0.0.2-alpha]
 jobs:
   setup:
     runs-on: ubuntu-20.04

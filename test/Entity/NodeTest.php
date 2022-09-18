@@ -12,16 +12,16 @@ class NodeTest extends TestCase {
 
   public function testFieldSingleValue() {
     $node = new Node();
-    $this->assertTrue($node->isSingleValued('nid'));
-    $this->assertTrue($node->isSingleValued('type'));
-    $this->assertTrue($node->isSingleValued('uuid'));
-    $this->assertFalse($node->isSingleValued('uuiid'));
+    $this->assertTrue($node->isSingleValuedField('nid'));
+    $this->assertTrue($node->isSingleValuedField('type'));
+    $this->assertTrue($node->isSingleValuedField('uuid'));
+    $this->assertFalse($node->isSingleValuedField('uuiid'));
   }
 
   public function testNodeMockObject() {
     $mockedNodeInstance = new Entity('node', 'nid');
-    $sea = new EntityConvert();
-    $parsedNode = $sea->toArray($mockedNodeInstance);
+    $ec = new EntityConvert();
+    $parsedNode = $ec->toArray($mockedNodeInstance);
     $this->assertArrayHasKey('nid', $parsedNode);
     $this->assertSame(PHP_INT_MAX, $parsedNode['nid']);
   }

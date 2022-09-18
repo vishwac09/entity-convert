@@ -12,16 +12,16 @@ class UserTest extends TestCase {
 
   public function testFieldSingleValue() {
     $user = new User();
-    $this->assertTrue($user->isSingleValued('uid'));
-    $this->assertTrue($user->isSingleValued('status'));
-    $this->assertTrue($user->isSingleValued('name'));
-    $this->assertFalse($user->isSingleValued('email'));
+    $this->assertTrue($user->isSingleValuedField('uid'));
+    $this->assertTrue($user->isSingleValuedField('status'));
+    $this->assertTrue($user->isSingleValuedField('name'));
+    $this->assertFalse($user->isSingleValuedField('email'));
   }
 
   public function testUserMockObject() {
     $mockedUserInstance = new Entity('user', 'uid');
-    $sea = new EntityConvert();
-    $parsedUser = $sea->toArray($mockedUserInstance);
+    $ec = new EntityConvert();
+    $parsedUser = $ec->toArray($mockedUserInstance);
     $this->assertArrayHasKey('uid', $parsedUser);
     $this->assertSame(PHP_INT_MAX, $parsedUser['uid']);
   }

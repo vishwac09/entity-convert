@@ -17,7 +17,7 @@ class Node extends BaseEntity {
   /**
    * @{inheritdoc}
    */
-  public function isSingleValued($name) {
+  public function isSingleValuedField($name) {
     return in_array($name, [
         'nid',
         'uuid',

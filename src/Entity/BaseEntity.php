@@ -51,7 +51,7 @@ abstract class BaseEntity implements EntityInterface {
    * @param string $name
    *   The name of the field.
    */
-  abstract public function isSingleValued($name);
+  abstract public function isSingleValuedField($name);
 
   /**
    * @{inheritdoc}
@@ -69,7 +69,7 @@ abstract class BaseEntity implements EntityInterface {
    * @{inheritdoc}
    */
   public function parseField($name, $field) {
-    if ($this->isSingleValued($name)) {
+    if ($this->isSingleValuedField($name)) {
       return $this->resolveDefaultFields($field);
     }
     else {

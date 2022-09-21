@@ -1,7 +1,7 @@
 name: Execute the Test Cases
 on:
   push:
-    branches: [master]
+    branches: [master, 0.0.2-alpha]
 jobs:
   setup:
     runs-on: ubuntu-20.04
@@ -18,3 +18,5 @@ jobs:
         run: composer install --prefer-dist --no-progress -vvv
       - name: Run Test cases
         run: composer run tests
+      - name: Run PHPStan
+        run: composer run phpstan

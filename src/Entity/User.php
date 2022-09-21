@@ -17,7 +17,7 @@ class User extends BaseEntity {
   /**
    * @{inheritdoc}
    */
-  public function isSingleValued($name) {
+  public function isSingleValuedField($name) {
     return in_array($name, [
         'uid',
         'uuid',

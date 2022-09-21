@@ -17,7 +17,7 @@ class File extends BaseEntity {
   /**
    * @{inheritdoc}
    */
-  public function isSingleValued($name) {
+  public function isSingleValuedField($name) {
     return in_array($name, [
         'fid',
         'uuid',

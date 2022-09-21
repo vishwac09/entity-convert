@@ -7,7 +7,7 @@ class Entity {
   /**
    * Type of entity node, taxonomy, user, file.
    */
-  protected $entityTypeId;
+  protected $getEntityTypeId;
 
   /**
    * The field corresponding to the entity.

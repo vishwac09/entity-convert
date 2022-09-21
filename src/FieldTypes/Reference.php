@@ -2,9 +2,8 @@
 
 namespace DrupalUtils\EntityConvert\FieldTypes;
 
-use DrupalUtils\EntityConvert\EntityConvertFactory;
+
 use DrupalUtils\EntityConvert\Entity\File;
-use DrupalUtils\EntityConvert\Entity\Image;
 
 use Drupal\file\Entity\File as DrupalFile;
 
@@ -34,6 +33,7 @@ trait Reference {
    * @return mixed
    */
   public function get_file($value) {
+    /** @phpstan-ignore-next-line */
     $file = DrupalFile::load($value['target_id']);
     $parsedEntity = (new File())->parse($file);
     return $parsedEntity->toArray();
@@ -48,6 +48,7 @@ trait Reference {
    * @return mixed
    */
   public function get_image($value) {
+    /** @phpstan-ignore-next-line */
     $file = DrupalFile::load($value['target_id']);
     $parsedEntity = (new File())->parse($file);
     return $parsedEntity->toArray();
